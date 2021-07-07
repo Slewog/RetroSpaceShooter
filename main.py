@@ -2,7 +2,13 @@
 import os  # Import of python modules.
 import sys
 import random
-import pygame
+
+try:
+    import pygame
+except ImportError:
+    from subprocess import call
+    call([sys.executable, "-m", "pip", "install", "pygame"])
+    import pygame
 
 # Center window on screen.
 os.environ['SDL_VIDEO_CENTERED'] = '1'
